@@ -1,0 +1,48 @@
+{
+  "test_cases": [
+    {
+      "name": "basic_2x2_budget_10",
+      "description": "Basic test case from the main example",
+      "field_width": 4,
+      "field_height": 6,
+      "purchased_squares": [[0, 2], [1, 0]],
+      "location_roses": {
+        "0,0": 1, "0,2": 10, "1,0": 4, "1,3": 2,
+        "2,1": 4, "2,2": 5, "2,3": 1,
+        "3,0": 2, "3,2": 9,
+        "4,0": 3, "4,2": 14,
+        "5,0": 5, "5,2": 1, "5,3": 100
+      },
+      "location_costs": {
+        "0,2": 1, "1,0": 1, "1,3": 5,
+        "2,1": 2, "2,2": 3, "2,3": 1,
+        "3,0": 1, "3,2": 2,
+        "4,0": 2, "4,2": 20,
+        "5,0": 1, "5,2": 10, "5,3": 1
+      },
+      "garden_width": 2,
+      "garden_height": 2,
+      "budget": 10
+    },
+    {
+      "name": "no_valid_garden_budget_too_low",
+      "description": "Edge case: Budget too low for any garden",
+      "field_width": 3,
+      "field_height": 3,
+      "purchased_squares": [],
+      "location_roses": {
+        "0,0": 10, "0,1": 20, "0,2": 30,
+        "1,0": 15, "1,1": 25, "1,2": 35,
+        "2,0": 5, "2,1": 15, "2,2": 25
+      },
+      "location_costs": {
+        "0,0": 5, "0,1": 5, "0,2": 5,
+        "1,0": 5, "1,1": 5, "1,2": 5,
+        "2,0": 5, "2,1": 5, "2,2": 5
+      },
+      "garden_width": 2,
+      "garden_height": 2,
+      "budget": 10
+    }
+  ]
+}
