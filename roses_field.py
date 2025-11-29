@@ -64,18 +64,22 @@ class RosesField:
         self.garden_width = garden_width
         self.garden_height = garden_height     
         
+        self.potential_gardens = None
+        
 
     def _find_all_potential_gardens(self) -> List[Tuple[int, int]]:
         """Finding all potential gardens in the field. These are sub-rectangles of size garden_width x garden_height."""
-        potential_gardens = []
-        for row in range(self.field_height - self.garden_height + 1):
-            for col in range(self.field_width - self.garden_width + 1):
-                potential_gardens.append((row, col))
-        return potential_gardens
+        return [(row, col) 
+                for row in range(self.field_height - self.garden_height + 1)
+                for col in range(self.field_width - self.garden_width + 1)]
         
 
     def set_garden_shape(self, garden_width: int, garden_height: int):
-        """Setting the desired garden's shape"""
+        """Setting the desired garden's shape, and precomputing all potential gardens"""
+        # TODO: consider making this lazy (the user may can set shape multiple times, before calling find_best_garden, with a specific budget).
+        self.garden_width = garden_width
+        self.garden_height = garden_height
+        potential_gardens = self._find_all_potential_gardens(self.garden_width, self.garden_height)
         pass
 
     def find_best_garden(self, budget: float) -> tuple:
